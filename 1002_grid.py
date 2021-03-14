@@ -29,6 +29,7 @@ def search_word(grid: list, word: str) -> bool:
     """
     print(f"Search: {word}")
     size = len(grid)
+
     for i in range(0, size):
         for j in range(0, size):
             # print(i, j, grid[i][j])
