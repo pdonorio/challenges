@@ -1,9 +1,4 @@
 """
-A solution to consider, based on a queue of steps to check:
-https://www.codewars.com/kata/reviews/5ad99956ff54ef8813000cf8/groups/5c704ff140972e00016cc25b
-
->>> path_finder("\\n".join([]))
-False
 >>> path_finder("\\n".join([ ".W.", ".W.", "..." ]))
 True
 >>> path_finder("\\n".join([ ".W.", ".W.", "W.." ]))
@@ -11,6 +6,8 @@ False
 >>> path_finder("\\n".join([ "......", "......", "......", "......", "......", "......" ]))
 True
 >>> path_finder("\\n".join([ "......", "......", "......", "......", ".....W", "....W." ]))
+False
+>>> path_finder("\\n".join([]))
 False
 """
 
@@ -23,6 +20,7 @@ def walk(matrix, path, visited, dim, exit, wall='W'):
     NOTE: matrix is a squared matrix (dim x dim)
     """
     position = path[-1]
+    # print(len(visited))
     if position == exit:
         return True
 

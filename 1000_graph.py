@@ -34,36 +34,25 @@ findNodesWithZeroAndOneParents(parentChildPairs) => [
 n: number of pairs in the input
 """
 
-# Time complexity = n + n + n + n + n = 5n = O(n)
-# Space complexity = 2n + n + n = 4n = O(n)
+from functools import reduce
 
 
-def get_nodes(pairs: list) -> set:
-    from functools import reduce
-
-    return reduce(set.union, (map(set, pairs)))
-
-
-def get_mapping(pairs: list) -> dict:
-    mappings = dict.fromkeys(get_nodes(pairs), 0)
-    for _, child in pairs:
+def find_parents(pairs: list) -> dict:
+    mappings = dict.fromkeys(reduce(set.union, (map(set, pairs))), 0)
+    for parent, child in pairs:
         mappings[child] += 1
     return mappings
 
 
-def get_zeros_and_ones(mappings: dict) -> (list, list):
+def find(pairs: list) -> (list, list):
     zeros = []
     ones = []
-    for node, instances in mappings.items():
+    for node, instances in find_parents(pairs).items():
         if instances == 0:
             zeros.append(node)
         elif instances == 1:
             ones.append(node)
     return zeros, ones
-
-
-def find(pairs: list) -> (list, list):
-    return get_zeros_and_ones(get_mapping(pairs))
 
 
 pairs = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (4, 9), (9, 11)]

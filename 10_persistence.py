@@ -10,11 +10,10 @@
 # Because 4 is already a one-digit number.
 >>> persistence(4)
 0
-"""
-import math
 
 
 #  Python 3.8+
+import math
 def persistence(digit: int):
     counter = 0
     while digit >= 10:
@@ -23,12 +22,9 @@ def persistence(digit: int):
     return counter
 
 
-"""
-#  Python 3.6+
+#Python 3.6+
 from operator import mul
 from functools import reduce
-
-
 def persistence(digit: int):
     counter = 0
     while digit >= 10:
@@ -36,6 +32,18 @@ def persistence(digit: int):
         digit = reduce(mul, map(int, str(digit)))
     return counter
 """
+
+
+def multiply_digits(digit: int) -> int:
+    from operator import mul
+    from functools import reduce
+
+    return reduce(mul, map(int, str(digit)))
+
+
+def persistence(digit: int, counter: int = 0) -> int:
+    """ recursion """
+    return counter if digit < 10 else persistence(multiply_digits(digit), counter + 1)
 
 
 if __name__ == '__main__':

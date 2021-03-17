@@ -21,6 +21,8 @@ def find_uniq(nums: list) -> int:
     # a, b = set(arr)
     # return a if arr.count(a) == 1 else b
 
+    # or Counter(arr).most_common()[-1][0]
+
 
 if __name__ == '__main__':
     import doctest

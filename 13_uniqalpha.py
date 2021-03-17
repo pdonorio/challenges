@@ -16,6 +16,7 @@ def find_uniq(arr: list) -> str:
             mappings[x] = string, False
         else:
             mappings[x] = string, True
+            # can I break in here?
 
     for _, (string, duplicate) in mappings.items():
         if not duplicate:

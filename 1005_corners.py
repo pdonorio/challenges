@@ -6,10 +6,7 @@ Except for the last row and the last column, every single cell will be a top lef
 
 def find_corners(matrix: list) -> list:
     return [
-        matrix[j][k]
-        for j in range(len(matrix))
-        for k in range(len(matrix[j]))
-        if j + 1 < len(matrix) and k + 1 < len(matrix[j])
+        matrix[j][k] for j in range(len(matrix) - 1) for k in range(len(matrix[j]) - 1)
     ]
 
 
