@@ -1,17 +1,4 @@
 """
-for i in range(1, 100, 1):
-    three_multiple = i % 3 == 0
-    five_multiple = i % 5 == 0
-    if three_multiple and five_multiple:
-        print("FizzBuzz")
-    elif three_multiple:
-        print("Fizz")
-    elif five_multiple:
-        print("Buzz")
-    else:
-        print(i)
-
-
 Suppose we have some input data describing a graph of relationships between parents and children over multiple generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a unique integer identifier.
 
 For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:

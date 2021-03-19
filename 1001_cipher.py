@@ -21,7 +21,7 @@ def encode(sentence: str, m: list) -> str:
     """
     n: len(sentence)
     k: cipher key
-    time: O(n*(n/k))
+    time: O(n + n/k) = O(n)
     space: O(n)
     """
     text = ""
@@ -47,7 +47,10 @@ def cipher(sentence: str, key: int = 10) -> str:
     print(f"Result:\n'{text}'\n")
 
 
-def new_cipher(sentence, size, filling_char='*'):
+"""
+A second updated version
+
+def cipher(sentence, size, filling_char='*'):
     sentence_len = len(sentence)
     if size < 2 or size > sentence_len:
         return sentence
@@ -62,18 +65,15 @@ def new_cipher(sentence, size, filling_char='*'):
     # now the zip function can transpose all chars, being a squared matrix
     # NOTE: we remove the filling chars before adding the row to the cipher
     return ''.join(''.join(arr).rstrip(filling_char) for arr in zip(*matrix))
+"""
 
 
 sentence = "A quick brown fox jumps over the lazy do"
-print(new_cipher(sentence, 5))
+print(cipher(sentence, 5))
 sentence = "A quick brown fox jumps over the lazy dog"
-print(new_cipher(sentence, 8))
-print(new_cipher(sentence, 1))
-print(new_cipher(sentence, 0))
-
 cipher(sentence)
 cipher(sentence, 8)
-# sentence = "Hell"
-# cipher(sentence, 5)
-# cipher(sentence, 1)
-# cipher(sentence, 0)
+sentence = "Hell"
+cipher(sentence, 5)
+cipher(sentence, 1)
+cipher(sentence, 0)
